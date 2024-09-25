@@ -21,6 +21,7 @@ namespace Weather_Monitoring_and_Reporting_Service
             data = "<WeatherData><Location>City Name</Location><Temperature>32</Temperature><Humidity>40</Humidity></WeatherData>";
             weatherNotifier.AddWeatherData(data, new XMLInputWeatherDataParser());
 
+
             Console.ReadLine();
         }
     }
