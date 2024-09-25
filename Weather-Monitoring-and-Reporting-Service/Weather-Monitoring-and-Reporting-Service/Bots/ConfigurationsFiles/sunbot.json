@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "temperatureThreshold": 30,
+  "message": "Wow, it's a scorcher out there!"
+}

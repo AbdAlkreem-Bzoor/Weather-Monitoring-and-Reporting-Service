@@ -1,0 +1,5 @@
+{
+  "enabled": false,
+  "temperatureThreshold": 0,
+  "message": "Brrr, it's getting chilly!"
+}
