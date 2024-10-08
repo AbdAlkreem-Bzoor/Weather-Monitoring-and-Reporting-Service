@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace Weather_Monitoring_and_Reporting_Service.Bots
+﻿namespace Weather_Monitoring_and_Reporting_Service.Bots
 {
     public interface IBotFileFormatParser
     {

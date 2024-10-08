@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Weather_Monitoring_and_Reporting_Service.Input;
-
-namespace Weather_Monitoring_and_Reporting_Service.Bots
+﻿namespace Weather_Monitoring_and_Reporting_Service.Bots
 {
     public class RainBot : IWeatherHumidityBot
     {
@@ -13,7 +6,7 @@ namespace Weather_Monitoring_and_Reporting_Service.Bots
         private readonly static IWeatherHumidityBot Configuration = Configurations();
         public RainBot()
         {
-            Enabled = Configuration is null ? false : Configuration.Enabled;
+            Enabled = Configuration is not null && Configuration.Enabled;
             HumidityThreshold = Configuration is null ? 0.0 : Configuration.HumidityThreshold;
             Message = Configuration is null ? string.Empty : Configuration.Message;
         }
@@ -27,9 +20,7 @@ namespace Weather_Monitoring_and_Reporting_Service.Bots
         {
             var content = File.ReadAllText("D:\\OneDrive\\Desktop\\Weather Monitoring and Reporting Service\\Weather-Monitoring-and-Reporting-Service\\Weather-Monitoring-and-Reporting-Service\\Bots\\ConfigurationsFiles\\rainbot.json");
             var config = FormatParser.DeserializeHumidityBot<RainBot>(content);
-            if (config is null)
-                throw new Exception("Rain Bot, something went wrong!!!");
-            return config;
+            return config is null ? throw new Exception("Rain Bot, something went wrong!!!") : config;
         }
 
         public void CheckHumidityThreshold(double humidity)

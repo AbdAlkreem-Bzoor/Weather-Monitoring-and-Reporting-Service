@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Weather_Monitoring_and_Reporting_Service.Bots;
+﻿using Weather_Monitoring_and_Reporting_Service.Bots;
 using Weather_Monitoring_and_Reporting_Service.Input;
 
 namespace Weather_Monitoring_and_Reporting_Service
@@ -56,6 +51,5 @@ namespace Weather_Monitoring_and_Reporting_Service
         {
             TemperatureBots.ForEach(bot => NotifyTemperatureBot(bot, temperature));
         }
-        
     }
 }

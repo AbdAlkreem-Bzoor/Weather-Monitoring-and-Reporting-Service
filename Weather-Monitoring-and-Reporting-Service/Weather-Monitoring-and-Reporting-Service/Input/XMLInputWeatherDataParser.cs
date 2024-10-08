@@ -1,5 +1,4 @@
-﻿using System.Data.SqlTypes;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Serialization;
 
 namespace Weather_Monitoring_and_Reporting_Service.Input
