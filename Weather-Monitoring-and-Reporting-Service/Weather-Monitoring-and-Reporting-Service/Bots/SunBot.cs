@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Weather_Monitoring_and_Reporting_Service.Bots
+﻿namespace Weather_Monitoring_and_Reporting_Service.Bots
 {
     public class SunBot : IWeatherTemperatureBot
     {
@@ -13,7 +6,7 @@ namespace Weather_Monitoring_and_Reporting_Service.Bots
         private readonly static IWeatherTemperatureBot Configuration = Configurations();
         public SunBot()
         {
-            Enabled = Configuration is null ? false : Configuration.Enabled;
+            Enabled = Configuration is not null && Configuration.Enabled;
             TemperatureThreshold = Configuration is null ? 0.0 : Configuration.TemperatureThreshold;
             Message = Configuration is null ? string.Empty : Configuration.Message;
         }
@@ -26,9 +19,7 @@ namespace Weather_Monitoring_and_Reporting_Service.Bots
         {
             var content = File.ReadAllText("D:\\OneDrive\\Desktop\\Weather Monitoring and Reporting Service\\Weather-Monitoring-and-Reporting-Service\\Weather-Monitoring-and-Reporting-Service\\Bots\\ConfigurationsFiles\\sunbot.json");
             var config = FormatParser.DeserializeTemperatureBot<SunBot>(content);
-            if (config is null)
-                throw new Exception("Sun Bot, something went wrong!!!");
-            return config;
+            return config is null ? throw new Exception("Sun Bot, something went wrong!!!") : config;
         }
         public void CheckTemperatureThreshold(double temperature)
         {

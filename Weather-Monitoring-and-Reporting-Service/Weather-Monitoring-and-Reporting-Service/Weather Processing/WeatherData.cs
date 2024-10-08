@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Weather_Monitoring_and_Reporting_Service
+﻿namespace Weather_Monitoring_and_Reporting_Service
 {
     public class WeatherData
     {
