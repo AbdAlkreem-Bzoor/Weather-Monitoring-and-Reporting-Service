@@ -13,7 +13,6 @@
         public bool Enabled { get; init; }
         public double TemperatureThreshold { get; init; }
         public string Message { get; init; }
-
         public event Action<string>? OnStateChanged = Console.WriteLine;
         public static IWeatherTemperatureBot Configurations()
         {

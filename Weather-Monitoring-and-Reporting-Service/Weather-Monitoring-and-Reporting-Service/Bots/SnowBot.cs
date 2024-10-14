@@ -13,16 +13,13 @@
         public bool Enabled { get; init; }
         public double TemperatureThreshold { get; init; }
         public string Message { get; init; }
-
         public event Action<string>? OnStateChanged = Console.WriteLine;
-
         public static IWeatherTemperatureBot Configurations()
         {
             var content = File.ReadAllText("D:\\OneDrive\\Desktop\\Weather Monitoring and Reporting Service\\Weather-Monitoring-and-Reporting-Service\\Weather-Monitoring-and-Reporting-Service\\Bots\\ConfigurationsFiles\\snowbot.json");
             var config = FormatParser.DeserializeTemperatureBot<SnowBot>(content);
             return config is null ? throw new Exception("Snow Bot, something went wrong!!!") : config;
         }
-
         public void CheckTemperatureThreshold(double temperature)
         {
             if (temperature < TemperatureThreshold && OnStateChanged is not null)

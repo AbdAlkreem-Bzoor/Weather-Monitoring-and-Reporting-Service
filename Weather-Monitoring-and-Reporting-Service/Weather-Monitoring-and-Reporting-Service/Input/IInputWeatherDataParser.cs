@@ -2,7 +2,7 @@
 {
     public interface IInputWeatherDataParser
     {
-        public string Serialize(WeatherData weatherData);
-        public WeatherData? Deserialize(string content);
+        public string Serialize(IWeatherData weatherData);
+        public IWeatherData? Deserialize(string content);
     }
 }

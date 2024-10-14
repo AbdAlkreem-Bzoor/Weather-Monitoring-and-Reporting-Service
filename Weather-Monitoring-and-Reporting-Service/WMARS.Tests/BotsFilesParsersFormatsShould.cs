@@ -6,7 +6,7 @@ namespace WMARS.Tests
     public class BotsFilesParsersFormatsShould
     {
         [Theory]
-        [InlineData("{\r\n  \"Location\": \"City Name\",\r\n  \"Temperature\": -25.0,\r\n  \"Humidity\": 15.0\r\n}")]
+        [InlineData("{\"Location\": \"City Name\",  \"Temperature\": -25.0,\"Humidity\": 15.0}")]
         public void CheckJsonParserDeserializeMethods(string content)
         {
             var parser = new BotJsonFormatParser();

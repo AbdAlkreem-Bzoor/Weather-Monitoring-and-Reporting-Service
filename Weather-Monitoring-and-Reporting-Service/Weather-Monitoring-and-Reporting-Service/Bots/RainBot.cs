@@ -13,16 +13,13 @@
         public bool Enabled { get; init; }
         public double HumidityThreshold { get; init; }
         public string Message { get; init; }
-
         public event Action<string>? OnStateChanged = Console.WriteLine;
-
         public static IWeatherHumidityBot Configurations()
         {
             var content = File.ReadAllText("D:\\OneDrive\\Desktop\\Weather Monitoring and Reporting Service\\Weather-Monitoring-and-Reporting-Service\\Weather-Monitoring-and-Reporting-Service\\Bots\\ConfigurationsFiles\\rainbot.json");
             var config = FormatParser.DeserializeHumidityBot<RainBot>(content);
             return config is null ? throw new Exception("Rain Bot, something went wrong!!!") : config;
         }
-
         public void CheckHumidityThreshold(double humidity)
         {
             if (humidity > HumidityThreshold && OnStateChanged is not null)

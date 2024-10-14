@@ -15,10 +15,10 @@ namespace Weather_Monitoring_and_Reporting_Service
         public abstract void RemoveHumidityBot(IWeatherHumidityBot humidityBot);
         protected abstract void NotifyHumidityBot(IWeatherHumidityBot humidityBot, double humidity);
 
-        protected readonly List<WeatherData> Data = [];
+        public readonly List<IWeatherData> Data = [];
         public abstract void AddWeatherData(string data, IInputWeatherDataParser inputParser);
-        protected abstract void AddWeatherData(WeatherData data);
-        protected abstract void RemoveWeatherData(WeatherData data);
+        protected abstract void AddWeatherData(IWeatherData data);
+        protected abstract void RemoveWeatherData(IWeatherData data);
 
         protected abstract void NotifyAllHumidityBots(double humidity);
         protected abstract void NotifyAllTemperatureBots(double temperature);

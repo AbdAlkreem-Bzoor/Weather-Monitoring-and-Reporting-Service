@@ -33,13 +33,13 @@ namespace Weather_Monitoring_and_Reporting_Service
         {
             AddWeatherData(inputParser.Deserialize(data) ?? throw new ArgumentException("Make sure that the file format is supported!"));
         }
-        protected override void AddWeatherData(WeatherData data)
+        protected override void AddWeatherData(IWeatherData data)
         {
             Data.Add(data);
             NotifyAllTemperatureBots(data.Temperature);
             NotifyAllHumidityBots(data.Humidity);
         }
-        protected override void RemoveWeatherData(WeatherData data)
+        protected override void RemoveWeatherData(IWeatherData data)
         {
             Data.Remove(data);
         }
