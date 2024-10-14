@@ -5,7 +5,7 @@ namespace Weather_Monitoring_and_Reporting_Service.Input
 {
     public class XMLInputWeatherDataParser : IInputWeatherDataParser
     {
-        public string Serialize(WeatherData weatherData)
+        public string Serialize(IWeatherData weatherData)
         {
             var result = string.Empty;
             var xmlSerializer = new XmlSerializer(weatherData.GetType());
@@ -19,8 +19,7 @@ namespace Weather_Monitoring_and_Reporting_Service.Input
             }
             return result;
         }
-
-        public WeatherData? Deserialize(string content)
+        public IWeatherData? Deserialize(string content)
         {
             WeatherData? weatherData = null;
             var xmlSerializer = new XmlSerializer(typeof(WeatherData));
